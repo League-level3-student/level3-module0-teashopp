@@ -42,11 +42,21 @@ public class _02_RobotRace {
 				rob5[i].move(distance);
 
 				// turn
-				if (rob5[i].getX() <= 75 && rob5[i].getY() <= 50 || rob5[i].getX() >= 1000 && rob5[i].getY() <= 50 || rob5[i].getX() >= 850 && rob5[i].getY() <= 550) {
+				if (rob5[i].getX() <= 75 && rob5[i].getY() <= 50) {
 					rob5[i].turn(90);
-					rob5[i].move(50);
+					rob5[i].move(100);
 				}
-
+				
+				else if(rob5[i].getX() >= 850 && rob5[i].getY() <= 50) {
+					rob5[i].turn(90);
+					rob5[i].move(100);
+				}
+				
+				else if ( rob5[i].getX() >= 850 && rob5[i].getY() >= 550) {
+					rob5[i].turn(90);
+					rob5[i].move(100);
+				}
+				
 				// winner
 				if (rob5[i].getX() <= 20 && rob5[i].getY() >= 530) {
 					done = false;
