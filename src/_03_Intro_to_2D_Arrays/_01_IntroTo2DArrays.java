@@ -21,15 +21,15 @@ public class _01_IntroTo2DArrays {
 		}
 
 		// 3. print the third element from the second 1D array (2DArray[1][2])
-		System.out.println("The third element from the second array is: " + array2D[2][3]);
+		System.out.println("The third element from the second array is: " + array2D[1][2]);
 
 		// 4. set the third element from the second 1D array to a different
 		// value
 		Random randrand = new Random();
 		int randint = randrand.nextInt(20 - 1) + 1;
-		array2D[2][3] = randint;
+		array2D[1][2] = randint;
 
 		// 5. print the element again and verify the value has changed
-		System.out.println("The new third element from the second array is: " + array2D[2][3]);
+		System.out.println("The new third element from the second array is: " + array2D[1][2]);
 	}
 }
