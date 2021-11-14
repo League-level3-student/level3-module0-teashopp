@@ -50,10 +50,50 @@ package _07_The_Wrong_Way_Cow;
 
 public class TheWrongWayCow {
 
-    public static int[] findWrongWayCow(final char[][] field) {
-        // Fill in the code to return the [col, row] coordinate position of the
-        // head (letter 'c') of the wrong way cow!
-        
-        return null;
-    }
+	public static int[] findWrongWayCow(final char[][] field) {
+		// Fill in the code to return the [col, row] coordinate position of the
+		// head (letter 'c') of the wrong way cow!
+
+		// check pos
+		for (int i = 0; i < field.length; i++) {
+			for (int j = 0; j < field[i].length; j++) {
+
+				// check for w
+				if (field[i][j] == 'c') {
+
+					// check bounds
+					if ((j + 2) < field[i].length) {
+						System.out.println(field[i][j + 1] + ", " + field[i][j + 2]);
+						// check letter after w
+						if (field[i][j + 1] == 'o' && field[i][j + 2] == 'w') {
+						} else {
+							System.err.println(j + ", " + i);
+							return new int[] { j, i };
+						}
+					} else {
+						System.err.println(j + ", " + i);
+						return new int[] { j, i };
+					}
+				}
+
+				if (field[i][j] == 'c') {
+
+					// check bounds
+					if ((i + 2) < field[i].length) {
+						System.out.println(field[i + 1][j] + ", " + field[i + 2][j]);
+						// check letter after w
+						if (field[i + 1][j] == 'o' && field[i + 2][j] == 'w') {
+						} else {
+							System.err.println(j + ", " + i);
+							return new int[] { j, i };
+						}
+					} else {
+						System.err.println(j + ", " + i);
+						return new int[] { j, i };
+					}
+				}
+			}
+		}
+		return null;
+	}
 }
