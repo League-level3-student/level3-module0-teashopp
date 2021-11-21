@@ -54,6 +54,16 @@ public class TheWrongWayCow {
 		// Fill in the code to return the [col, row] coordinate position of the
 		// head (letter 'c') of the wrong way cow!
 
+		int coordn[] = new int[2];
+		int coords[] = new int[2];
+		int coorde[] = new int[2];
+		int coordw[] = new int[2];
+
+		int wwcn = 0;
+		int wwcs = 0;
+		int wwce = 0;
+		int wwcw = 0;
+
 		// check pos
 		for (int i = 0; i < field.length; i++) {
 			for (int j = 0; j < field[i].length; j++) {
@@ -61,39 +71,59 @@ public class TheWrongWayCow {
 				// check for w
 				if (field[i][j] == 'c') {
 
-					// check bounds
+					// check to the right
 					if ((j + 2) < field[i].length) {
 						System.out.println(field[i][j + 1] + ", " + field[i][j + 2]);
 						// check letter after w
 						if (field[i][j + 1] == 'o' && field[i][j + 2] == 'w') {
 						} else {
 							System.err.println(j + ", " + i);
-							return new int[] { j, i };
+							coorde[0] = j;
+							coorde[1] = i;
+							wwce = wwce + 1;
 						}
 					} else {
 						System.err.println(j + ", " + i);
-						return new int[] { j, i };
+						coordw[0] = j;
+						coordw[1] = i;
+						wwcw = wwcw + 1;
 					}
-				}
 
-				if (field[i][j] == 'c') {
-
-					// check bounds
+					// check down
 					if ((i + 2) < field[i].length) {
 						System.out.println(field[i + 1][j] + ", " + field[i + 2][j]);
 						// check letter after w
 						if (field[i + 1][j] == 'o' && field[i + 2][j] == 'w') {
 						} else {
 							System.err.println(j + ", " + i);
-							return new int[] { j, i };
+							coordn[0] = j;
+							coordn[1] = i;
+							wwcn = wwcn + 1;
 						}
 					} else {
 						System.err.println(j + ", " + i);
-						return new int[] { j, i };
+						coords[0] = j;
+						coords[1] = i;
+						wwcs = wwcs + 1;
 					}
 				}
+
 			}
 		}
-		return null;
+		if (wwce == 1) {
+			return coorde;
+		}
+		
+		else if (wwcw == 1) {
+			return coordw;
+		}
+
+		else if (wwcn == 1) {
+			return coordn;
+		}
+		
+		else {
+			return coords;
+		}
 	}
 }
